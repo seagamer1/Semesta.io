@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semesta | Connect</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Internal CSS: Rising Animation */
+        @keyframes risingFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .connect-content {
+            animation: risingFade 1s ease-out forwards;
+        }
+
+        /* Form Styling ala Startup */
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 32px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--card-shadow);
+	    position: relative;
+	    z-index: 1;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+	    align-item: start;
+	    margin bottom: 40px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+        }
+
+        .info-item h3 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #0055aa;
+            border-bottom-color: var(--primary-blue);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tetap Terhubung</h1>
+        <p style="color: var(--accent-gold); font-weight: 600;">JALIN KOMUNIKASI, ERATKAN PERSAUDARAAN</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="galeri.html">What we do</a>
+        <a href="kontak.html">Connect</a>
+    </nav>
+
+    <main class="container connect-content">
+        <section style="text-align: center; margin-bottom: 50px;">
+            <h2 style="border: none; font-size: 2.5rem;">Mari Berdiskusi</h2>
+            <p style="color: #666; max-width: 600px; margin: 0 auto;">Punya kenangan manis di Sinlui atau ingin bertanya tentang pendaftaran? Kami siap mendengar suara Anda.</p>
+        </section>
+
+        <div class="contact-grid">
+            <div class="form-container">
+                <form action="#">
+                    <label style="font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 8px;">Nama Lengkap</label>
+                    <input type="text" placeholder="Masukkan nama Anda..." required style="width: 100%; margin-bottom: 20px; padding: 12px; border-radius: 12px; border: 1px solid #ddd;">
+                    
+                    <label style="font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 8px;">Email</label>
+                    <input type="email" placeholder="nama@email.com" required style="width: 100%; margin-bottom: 20px; padding: 12px; border-radius: 12px; border: 1px solid #ddd;">
+                    
+                    <label style="font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 8px;">Pesan atau Kesan</label>
+                    <textarea rows="5" placeholder="Tuliskan pesan Anda tentang Sinlui..." required style="width: 100%; margin-bottom: 20px; padding: 12px; border-radius: 12px; border: 1px solid #ddd;"></textarea>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%;">Kirim Pesan</button>
+                </form>
+            </div>
+
+            <div>
+                <div class="info-item">
+                    <h3>Media Sosial Resmi</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/stlouissby/" target="_blank">Instagram</a>
+                        <a href="https://smakstlouis1sby.sch.id/">Website Sekolah</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <h3 style="font-weight: 800; color: var(--primary-blue); margin-bottom: 15px;">Lokasi Sekolah</h3>
+                    <div style="position: relative; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); line-height: 0;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4696.603994131937!2d112.74322938827868!3d-7.280553376554135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbc3b9a4f385%3A0x8d0105df1576400!2sSMA%20Katolik%20St.Louis%201%20Surabaya!5e1!3m2!1sid!2sid!4v1775976734417!5m2!1sid!2sid"
+                            width="100%" 
+                            height="350" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 15px; line-height: 1.6;">
+                        <b>Alamat:</b> Jl. Polisi Istimewa No. 7, Keputran, Kec. Tegalsari, Surabaya, Jawa Timur 60265.
+                    </p>
+                </div>
+            </div> </div> <div style="margin: 60px auto 40px auto; text-align: center; padding: 40px; background: #f0f4f8; border-radius: 24px; max-width: 1000px;">
+            <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Once a Sinlui, Always a Sinlui.</h3>
+            <p><b>Want a Change Be The Change!</b> — Generasi Muda yang Unggul dalam Iman dan Ilmu Pengetahuan.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div style="margin-bottom: 10px;">
+            <b>Want a Change Be The Change!</b>
+        </div>
+        <p style="font-size: 0.85rem; opacity: 0.8;">
+            &copy; Semesta 2026 - St. Louis 1 Surabaya. All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+</html>

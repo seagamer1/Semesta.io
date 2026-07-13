@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinta Sinlui | Spirit</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Internal CSS: Rising Animation */
+        @keyframes risingFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .spirit-content {
+            animation: risingFade 1s ease-out forwards;
+        }
+
+        /* Gaya Kartu Statistik Interaktif */
+        .stat-card {
+            background: var(--primary-blue);
+            color: white;
+            padding: 30px;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: default;
+            border: 2px solid transparent;
+        }
+
+        /* REAKSI INTERAKTIF SAAT MOUSE DI ATAS KARTU */
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: #004488;
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.3);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        /* Reaksi angka saat hover */
+        .stat-card:hover .stat-number {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .stat-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 10px;
+            display: block;
+        }
+
+    /* TABEL */
+    .container-prestasi {
+        margin-top: 50px;
+        animation: risingFade 1s ease-out forwards;
+    }
+
+    .table-wrapper {
+        background: white;
+        border-radius: 24px;
+        padding: 10px;
+        border: 1px solid rgba(0,0,0,0.05);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        margin-bottom: 40px;
+        overflow: hidden;
+    }
+
+    .table-dbl {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .table-dbl th {
+        background-color: #f8f9fb;
+        color: var(--primary-blue);
+        padding: 18px;
+        text-align: left;
+        font-weight: 800;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 2px solid #eee;
+    }
+
+    .table-dbl td {
+        padding: 16px 18px;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.95rem;
+        color: #444;
+    }
+
+    .table-dbl tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Label Status Modern */
+    .status-badge {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 100px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    .badge-champion {
+        background: #fff9e6;
+        color: #d4a017;
+        border: 1px solid #ffe58f;
+    }
+
+    .badge-runnerup {
+        background: #f5f5f5;
+        color: #666;
+        border: 1px solid #ddd;
+    }
+
+    .region-tag {
+        font-size: 0.75rem;
+        color: #888;
+        font-weight: 600;
+        display: block;
+        margin-top: 4px;
+    }
+
+    .title-section {
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+
+    .title-section h2 {
+        font-size: 1.8rem;
+        border: none;
+        margin: 0;
+    }
+
+/* Menyamakan lebar kolom untuk semua tabel dbl */
+.table-dbl th:nth-child(1), 
+.table-dbl td:nth-child(1) {
+    width: 25%; /* Kolom Tahun */
+}
+
+.table-dbl th:nth-child(2), 
+.table-dbl td:nth-child(2) {
+    width: 35%; /* Kolom Pencapaian */
+}
+
+.table-dbl th:nth-child(3), 
+.table-dbl td:nth-child(3) {
+    width: 40%; /* Kolom Lingkup & Keterangan */
+}
+
+/* Tambahan agar tabel lebih stabil */
+.table-dbl {
+    table-layout: fixed; /* Memaksa browser mengikuti lebar yang ditentukan */
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Memastikan teks yang panjang tidak merusak layout */
+.table-dbl td {
+    word-wrap: break-word;
+    vertical-align: top; /* Agar teks rapi jika ada yang lebih panjang */
+}
+    	</style>
+    </head>
+    <body>
+
+    <header>
+        <h1>Sinluiers</h1>
+        <p style="color: var(--accent-gold); font-weight: 600;">LOYALITAS TANPA BATAS</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="sejarah.html">Heritage</a>
+        <a href="spirit.html">Spirit</a>
+        <a href="akademik.html">Academic</a>
+        <a href="galeri.html">Gallery</a>
+        <a href="kontak.html">Connect</a>
+    </nav>
+
+    <main class="container spirit-content">
+        <section>
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Jiwa di Balik Tribun</h2>
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+                Gema nyanyian dan koreografi raksasa adalah bukti nyata bahwa kami satu jiwa untuk almamater.
+            </p>
+
+            <img src="Suporter Sinlui.jpg" alt="Supporter Sinluiers" style="margin-bottom: 40px;">
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Consecutive DBL Titles</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Active Supporters</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number">#1</span>
+                    <span class="stat-label">Best Management</span>
+                </div>
+
+            </div>
+
+            <div class="container-prestasi">
+    
+    <div class="title-section">
+        <h2>Prestasi DBL Putra</h2>
+        <p style="color: #888;">Dominasi tak terhentikan di kancah bola basket pelajar.</p>
+    </div>
+    
+<div class="table-wrapper">
+    <table class="table-dbl">
+        <thead>
+            <tr>
+                <th>Tahun</th>
+                <th>Pencapaian</th>
+                <th>Lingkup & Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr><td>2025</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Provinsi</b><br><span class="region-tag">Gelar Ke-10 secara keseluruhan</span></td></tr>
+                <tr><td>2024</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Provinsi</b><br><span class="region-tag">Menang dramatis di Final Jawa Timur</span></td></tr>
+                <tr><td>2023</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Provinsi</b><br><span class="region-tag">Five-peat (Juara 5 kali beruntun)</span></td></tr>
+                <tr><td>2022</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Provinsi</b><br><span class="region-tag">Dominasi Mutlak Jawa Timur</span></td></tr>
+                <tr><td>2021</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Provinsi</b><br><span class="region-tag">Juara Pasca Pandemi</span></td></tr>
+                <tr><td>2019</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Provinsi</b><br><span class="region-tag">Back-to-back Title</span></td></tr>
+                <tr><td>2018</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Kota (Surabaya)</b><br><span class="region-tag">Awal era dominasi baru</span></td></tr>
+                <tr><td>2014</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Kota (Surabaya)</b><br><span class="region-tag">Performa Impresif</span></td></tr>
+                <tr><td>2011</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Kota (Surabaya)</b><br><span class="region-tag">Gelar Prestisius Nasional</span></td></tr>
+                <tr><td>2004</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Kota (Surabaya)</b><br><span class="region-tag">Juara Edisi Pertama (Sejarah DBL)</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="title-section">
+        <h2>Prestasi DBL Putri</h2>
+        <p style="color: #888;">Kekuatan yang selalu disegani di lapangan.</p>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="table-dbl">
+            <thead>
+                <tr>
+                    <th>Tahun</th>
+                    <th>Pencapaian</th>
+                    <th>Lingkup & Keterangan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>2025</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Provinsi</b><br><span class="region-tag">Kawin Gelar Pertama (Putra & Putri)</span></td></tr>
+                <tr><td>2024</td><td><span class="status-badge badge-runnerup">Runner-Up</span></td><td><b>Provinsi</b><br><span class="region-tag">Final yang sangat sengit</span></td></tr>
+                <tr><td>2023</td><td><span class="status-badge badge-runnerup">Runner-Up</span></td><td><b>Provinsi</b><br><span class="region-tag">Perlawanan maksimal di tingkat Jawa Timur</span></td></tr>
+                <tr><td>2016</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Kota (Surabaya)</b><br><span class="region-tag">Gelar penutup era 2010-an</span></td></tr>
+                <tr><td>2015</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Kota (Surabaya)</b><br><span class="region-tag">Back-to-back Champion</span></td></tr>
+                <tr><td>2014</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Kota (Surabaya)</b><br><span class="region-tag">Dominasi Srikandi Surabaya</span></td></tr>
+                <tr><td>2012</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Kota (Surabaya)</b><br><span class="region-tag">Prestasi Gemilang</span></td></tr>
+                <tr><td>2005</td><td><span class="status-badge badge-champion">Champion</span></td><td><b>Kota (Surabaya)</b><br><span class="region-tag">Gelar perdana tim putri</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+            
+            <div style="margin-top: 40px; padding: 30px; border-radius: 24px; background: #fffbe6; border: 1px solid #ffe58f; text-align: center;">
+                <p style="margin: 0; font-weight: 600; color: #856404; font-style: italic;">
+                    "Kemenangan bukan hanya milik mereka yang di lapangan, tapi milik kita yang tak berhenti bersuara di tribun."
+                </p>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 50px;">
+	    <button class="cta-button" onclick="location.href='akademik.html'">Lihat Sisi Akademik</button>
+        </div>
+    </main>
+
+    <footer>
+        <div style="margin-bottom: 10px;">
+            <b>Want a Change Be The Change!</b>
+        </div>
+        <p style="font-size: 0.85rem; opacity: 0.8;">
+            &copy; 2026 Kebanggaan Sinlui - St. Louis 1 Surabaya. All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
