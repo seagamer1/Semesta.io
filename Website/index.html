@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semesta | Home</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Internal CSS: Animasi khusus ala website modern */
+        @keyframes subtleLoad {
+            from { opacity: 0; transform: translateY(10px); filter: blur(5px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        .hero-section {
+            animation: subtleLoad 1.2s ease-out;
+            text-align: center;
+            padding: 100px 20px 60px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .bento-item {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,51,102,0.08);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+    <h1 class="title-animate">Semesta</h1>
+    <p style="color: var(--accent-gold); font-weight: 600;">Want a Change Be The Change!</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="galeri.html">What we do</a>
+        <a href="kontak.html">Connect</a>
+    </nav>
+
+    <main class="container">
+        <section class="hero-section">
+            <h2 style="border: none; padding: 0; font-size: 3.5rem; line-height: 1.1;">Lebih dari sekadar sekolah,<br><span style="color: #666;">Ini adalah rumah.</span></h2>
+            <p style="max-width: 600px; margin: 25px auto; color: #555; font-size: 1.1rem;">
+                Menelusuri departemen pembaharu dan penggerak, tempat di mana perubahan kecil dapat memberi dampak besar.
+            </p>
+            <button class="cta-button" onclick="location.href='sejarah.html'">Jelajahi Heritage</button>
+        </section>
+
+        <div class="bento-grid">
+            <div class="bento-item">
+                <h3 style="color: var(--primary-blue);">Visi</h3>
+                <p>Mewadahi pembaharu-pembaharu muda yang kreatif dan antusias dalam menangani masalah serta dapat menggerakkan orang lain baik di dalam maupun luar sekolah..</p>
+            </div>
+            <div class="bento-item" style="background: var(--primary-blue); color: white;">
+                <h3 style="color: var(--accent-gold);">Sinluiers</h3>
+                <p>Energi tanpa batas di tribun. Sebuah loyalitas yang tak pernah padam untuk almamater.</p>
+            </div>
+            <div class="bento-item">
+                <h3 style="color: var(--primary-blue);">Misi</h3>
+                <p>1. Menyikapi masalah di lingkungan sekitar secara antisipatif dan peka.<br>
+2. Menjadi wadah bertukar pikiran untuk mencari solusi dari berbagai masalah.<br>
+3. Mengelola dan melaksanakan program yang dapat diterapkan secara realistis, sistematis, dan sesuai akan keprihatinan dan visi SEMESTA.
+
+.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 60px; text-align: center;">
+            <img src="Sinlui Front View.jpeg" alt="Sinlui Front View" style="width: 100%; border: 1px solid #eee;">
+        </div>
+    </main>
+
+    <footer>
+	<div style="margin-bottom: 10px;">
+            <b>Want a Change Be The Change!</b>
+        </div>
+        <p style="font-size: 0.85rem; opacity: 0.8;">
+            &copy; Semesta 2026 - St. Louis 1 Surabaya. All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
