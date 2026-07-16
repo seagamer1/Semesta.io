@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
 
 :root {
-    --primary-blue: #64c003;
-    --accent-gold: #FFD700;
+    --primary-blue: #2C5F34;
+    --accent-gold: #FFDB58;
     --bg-light: #f5f7fa;
     --glass-white: rgba(255, 255, 255, 0.8);
     --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
@@ -21,7 +21,8 @@ body {
 
 /* Header & Navigasi Modern */
 header {
-    background: var(--primary-blue);
+    background-image: url('image atas.jpg');
+    background-size: cover;
     padding: 60px 20px;
     text-align: center;
     color: white;
@@ -38,9 +39,9 @@ nav {
     background: var(--glass-white);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 12px 30px;
+    padding: 10px 20px;
     position: sticky;
-    top: 20px;
+    top: 15px;
     width: fit-content;
     margin: -30px auto 0;
     border-radius: 100px; /* Pill shape */
@@ -53,9 +54,9 @@ nav {
 nav a {
     color: var(--primary-blue);
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 6px 12px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     border-radius: 100px;
     transition: all 0.3s ease;
 }
@@ -131,7 +132,7 @@ button, .cta-button {
 
 button:hover {
     transform: scale(1.05);
-    background: #004488;
+    background: #224928;
 }
 
 input, textarea {

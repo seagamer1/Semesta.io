@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semesta | Gallery</title>
+    <title>Cinta Sinlui | Gallery</title>
     <link rel="stylesheet" href="style.css">
     
     <style>
@@ -20,6 +20,7 @@
         /* Gallery Grid System */
         .gallery-grid {
             display: grid;
+            flex-wrap: wrap; /* Memungkinkan gambar turun ke baris baru */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 40px;
@@ -32,6 +33,7 @@
             height: 300px;
             cursor: pointer;
             border: 1px solid rgba(0,0,0,0.05);
+
         }
 
         .gallery-item img {
@@ -74,6 +76,148 @@
             margin-bottom: 8px;
             display: inline-block;
         }
+        /* Internal CSS: Rising Animation */
+@keyframes risingFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.gallery-content {
+    animation: risingFade 1s ease-out forwards;
+}
+
+/* Gallery Grid System */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    height: 300px;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    transition: transform 0.5s ease;
+}
+
+.category-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    background: var(--accent-gold);
+    color: var(--primary-blue);
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+/* ========================================== */
+/* TAMPILAN DESKTOP (Lebar Layar > 768px)     */
+/* ========================================== */
+@media (min-width: 769px) {
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 51, 102, 0.9));
+        color: white;
+        padding: 20px;
+        transform: translateY(100%); /* Sembunyi secara default */
+        transition: transform 0.4s ease;
+    }
+
+    /* Efek muncul saat kursor diarahkan (Hover) */
+    .gallery-item:hover .overlay {
+        transform: translateY(0);
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+}
+/* ========================================== */
+/* PENGATURAN TEKS PETUNJUK GLOBAL            */
+/* ========================================== */
+.gallery-hint {
+    text-align: center;
+    color: #777;
+    font-size: 0.7rem;
+    font-weight: 500;
+    margin-top: -20px;
+    margin-bottom: 35px;
+    letter-spacing: 0.3px;
+}
+
+/* TAMPILAN DESKTOP: Kalimat yang elegan & estetik */
+.gallery-hint::before {
+    content: "✨ Arahkan kursor Anda pada foto untuk menjelajahi setiap momen.";
+}
+
+/* ========================================== */
+/* TAMPILAN HP / TABLET (Lebar Layar <= 768px) */
+/* ========================================== */
+@media (max-width: 768px) {
+    /* TAMPILAN HP: Mengubah kalimat menjadi interaktif untuk layar sentuh */
+    .gallery-hint {
+        margin-bottom: 25px;
+        font-size: 0.7rem;
+        /* Opsional: efek berkedip lembut di HP agar memicu interaksi sentuhan */
+        animation: pulseHint 2s infinite ease-in-out; 
+    }
+
+    .gallery-hint::before {
+        content: "💡 Coba ketuk fotonya untuk menyembunyikan atau memunculkan cerita!";
+    }
+}
+
+/* Animasi kedip halus untuk HP */
+@keyframes pulseHint {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+/* ========================================== */
+/* TAMPILAN HP / TABLET (Lebar Layar <= 768px) */
+/* ========================================== */
+@media (max-width: 768px) {
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        /* Diubah agar menutupi bagian bawah secara penuh, lalu mulus memudar (fade) ke atas */
+        background: linear-gradient(to top, rgb(0, 51, 102) 0%, rgba(0, 51, 102, 0.8) 40%, rgba(0, 51, 102, 0) 100%);
+        color: white;
+        padding: 30px 20px 20px 20px; /* Ditambah padding atas agar teks tidak terlalu mepet ke area transparan */
+        transform: translateY(0); 
+        transition: transform 0.4s ease;
+    }
+
+    .gallery-item img {
+        transform: scale(1.05); 
+    }
+
+    /* KETIKA DI-KLIK DI HP: Teks bersembunyi */
+    .gallery-item.hide-overlay .overlay {
+        transform: translateY(100%);
+    }
+
+    .gallery-item.hide-overlay img {
+        transform: scale(1);
+    }
+}
     </style>
 </head>
 <body>
@@ -85,71 +229,91 @@
 
     <nav>
         <a href="index.html">Home</a>
-        <a href="galeri.html">What we do</a>
-        <a href="kontak.html">Connect</a>
+        <a href="visi-misi.html">Visi-Misi</a>
+        <a href="galeri.html">Gallery</a>
+        <a href="connect.html">Connect</a>
     </nav>
 
     <main class="container gallery-content">
         <section style="text-align: center; margin-bottom: 40px;">
-            <h2 style="border: none; font-size: 2.5rem;">Program Kerja</h2>
-            <p style="color: #666;">Sedikit cuplikan dari pencapaian kami selama ini</p>
+            <h2 style="border: none; font-size: 2.5rem;">Potret Program Kerja</h2>
+            <p style="color: #666;">Kerja sama yang harmonis antar anggota untuk berkarya.</p>
         </section>
-
         <div class="gallery-grid">
             
             <div class="gallery-item">
-                <img src="Gedung Depan.jpg" alt="Gedung Depan">
+                <img src="roofgarden.jpg" alt="Roof Garden">
                 <div class="overlay">
-                    <span class="category-tag">Proker</span>
+                    <span class="category-tag">Division</span>
                     <h3 style="margin: 5px 0;">Roof-Garden</h3>
-                    <p style="font-size: 0.85rem; opacity: 0.9;">The green thumb of Semesta.</p>
+                    <p style="font-size: 0.85rem; opacity: 0.9;">The green thumb of Semesta. Breathing life into the environment, one sustainable step at a time.</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <img src="Suporter Sinlui 2.jpg" alt="Suporter">
+                <img src="cosine.jpg" alt="Cosine">
                 <div class="overlay">
-                    <span class="category-tag">Proker</span>
+                    <span class="category-tag">Division</span>
                     <h3 style="margin: 5px 0;">Cosine</h3>
-                    <p style="font-size: 0.85rem; opacity: 0.9;"><b>Co</b>nnect With <b>Si</b>nlui Wa<b>n</b>d<b>e</b>rers</p>
+                    <p style="font-size: 0.85rem; opacity: 0.9;"><b>Co</b>nnect With <b>Si</b>nlui Wa<b>n</b>d<b>e</b>rers. Exploring the environment through the eyes of boarding school students.</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <img src="Laboratorium.jpg" alt="Riset">
+                <img src="sehati.png" alt="Sehati">
                 <div class="overlay">
-                    <span class="category-tag">Proker</span>
-                    <h3 style="margin: 5px 0;">SemFacts</h3>
-                    <p style="font-size: 0.85rem; opacity: 0.9;">Biweekly educational contents.</p>
+                    <span class="category-tag">Division</span>
+                    <h3 style="margin: 5px 0;">Sehati</h3>
+                    <p style="font-size: 0.85rem; opacity: 0.9;">Celebrating World Mental Health Day: breaking the stigma and reminding you your mind matters.</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <img src="Pocin.jpg" alt="Pohon Cinta">
+                <img src="semfacts.jpg" alt="Semesta Facts">
                 <div class="overlay">
-                    <span class="category-tag">Proker</span>
-                    <h3 style="margin: 5px 0;">Kartini</h3>
-                    <p style="font-size: 0.85rem; opacity: 0.9;">Acara tahunan memperingati perjuangan Kartini.</p>
+                    <span class="category-tag">Department</span>
+                    <h3 style="margin: 5px 0;">Semesta Facts</h3>
+                    <p style="font-size: 0.85rem; opacity: 0.9;">Biweekly posts and videos, created specifically to share knowledge and educate.</p>
                 </div>
             </div>
 
-    
+            <div class="gallery-item">
+                <img src="kartini.jpg" alt="Kartini">
+                <div class="overlay">
+                    <span class="category-tag">Department</span>
+                    <h3 style="margin: 5px 0;">Hari Kartini</h3>
+                    <p style="font-size: 0.85rem; opacity: 0.9;">An annual event dedicated to honoring Kartini’s historic struggle for equality.</p>
+                </div>
+            </div>
         </div>
-
+        <br><br>
+        <p class="gallery-hint"></p>
         <div style="text-align: center; margin-top: 60px;">
-            <p><b>Ingin memberikan apresiasi atau masukan?</b></p>
-            <button class="cta-button" onclick="location.href='kontak.html'">Hubungi Kami</button>
+            <p><b>Masih penasaran?</b></p>
+            <button class="cta-button" onclick="location.href='connect.html'">Media Sosial</button>
         </div>
     </main>
 
     <footer>
         <div style="margin-bottom: 10px;">
-            <b>Want a Change Be The Change!</b>
+            <b>Want a Change? Be the Change!</b>
         </div>
         <p style="font-size: 0.85rem; opacity: 0.8;">
-            &copy; 2026 Kebanggaan Sinlui - St. Louis 1 Surabaya. All Rights Reserved.
+            &copy; Semesta 2026 - St. Louis 1 Surabaya. All Rights Reserved.
         </p>
     </footer>
 
 </body>
+<script>
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Jalankan fungsi klik HANYA jika dibuka di layar HP (lebar <= 768px)
+            if (window.innerWidth <= 768) {
+                this.classList.toggle('hide-overlay');
+            }
+        });
+    });
+</script>
 </html>
